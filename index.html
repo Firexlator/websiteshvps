@@ -1,1 +1,72 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SHVPS - Comming soon</title></head><body><center><h1>Comming soon</h1><h3>This service start the 01 september 2024, comming really soon</h3><h4>SHVPS is a little hosting service hosted in France with High-End servers with low cost</h4></center></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attente de l'Événement</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Événement Spécial</h1>
+    <p>Nous préparons quelque chose de spécial pour vous. L'événement commencera dans :</p>
+    <div class="countdown" id="countdown"></div>
+
+    <script>
+        // Définir la date de l'événement
+        var eventDate = new Date("Dec 31, 2024 23:59:59").getTime();
+
+        // Mettre à jour le compte à rebours chaque seconde
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = eventDate - now;
+
+            // Calcul des jours, heures, minutes et secondes
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Afficher le résultat dans l'élément avec l'id "countdown"
+            document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // Si le compte à rebours est terminé
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "L'événement est maintenant en cours !";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
